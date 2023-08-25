@@ -26,4 +26,8 @@ This is my final homework on creating an interactive web-page where users can se
 ## Link to the repository 
 - https://github.com/Valerakod/movies-explorer-full-project
 
+Ccылка на проекта и IP
 
+IP 158.160.53.192
+
+https://valeriia.diplom.nomoredomainsicu.ru
