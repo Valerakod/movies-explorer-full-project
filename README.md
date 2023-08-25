@@ -28,7 +28,7 @@ This is my final homework on creating an interactive web-page where users can se
 
 ## Link to the project and IP
 
-IP 158.160.108.45
+IP 158.160.53.192
 
 https://valeriia.diplom.nomoredomainsicu.ru
 
