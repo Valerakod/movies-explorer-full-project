@@ -8,16 +8,16 @@ import * as movies from '../../utils/MoviesApi';
 import { filterMovies, filterDuration } from '../../utils/utils';
 
 function Movies({ loggedIn, handleLikeFilm, savedMovies, onDeleteCard }) {
-  const [isShortFilm, setisShortFilm] = useState(false);
-  const [isRequestError, setisRequestError] = useState(false);
+  const [isShortMovies, setisShortMovies] = useState(false);
+  const [isQueryError, setisQueryError] = useState(false);
   const [isNotFound, setIsNotFound] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [initialCardsMovies, setInitialCardsMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
 
   function handleShortFilmFilterToggle() {
-    setisShortFilm(!isShortFilm);
-    if (!isShortFilm) {
+    setisShortMovies(!isShortMovies);
+    if (!isShortMovies) {
       if (filterDuration(initialCardsMovies).length === 0) {
         setFilteredMovies(filterDuration(initialCardsMovies));
       } else {
@@ -26,7 +26,7 @@ function Movies({ loggedIn, handleLikeFilm, savedMovies, onDeleteCard }) {
     } else {
       setFilteredMovies(initialCardsMovies);
     }
-    localStorage.setItem('shortMovies', !isShortFilm);
+    localStorage.setItem('shortMovies', !isShortMovies);
   }
 
   function updateFilteredMoviesList(movies, query, short) {
@@ -39,30 +39,30 @@ function Movies({ loggedIn, handleLikeFilm, savedMovies, onDeleteCard }) {
 
   useEffect(() => {
     if (localStorage.getItem('shortMovies') === 'true') {
-      setisShortFilm(true);
+      setisShortMovies(true);
     } else {
-      setisShortFilm(false);
+      setisShortMovies(false);
     }
   }, []);
 
   function searchAndFilterMovies(query) {
     localStorage.setItem('movieSearch', query);
-    localStorage.setItem('shortMovies', isShortFilm);
+    localStorage.setItem('shortMovies', isShortMovies);
 
     if (localStorage.getItem('allMovies')) {
       const movies = JSON.parse(localStorage.getItem('allMovies'));
-      updateFilteredMoviesList(movies, query, isShortFilm);
+      updateFilteredMoviesList(movies, query, isShortMovies);
     } else {
       setIsLoading(true);
       movies
         .getMovies()
         .then((cardsData) => {
-          updateFilteredMoviesList(cardsData, query, isShortFilm);
-          setisRequestError(false);
+          updateFilteredMoviesList(cardsData, query, isShortMovies);
+          setisQueryError(false);
           console.log(cardsData);
         })
         .catch((err) => {
-          setisRequestError(true);
+          setisQueryError(true);
           console.log(err);
         })
         .finally(() => {
@@ -100,12 +100,12 @@ function Movies({ loggedIn, handleLikeFilm, savedMovies, onDeleteCard }) {
       <Header loggedIn={loggedIn} />
       <SearchForm
         searchAndFilterMovies={searchAndFilterMovies}
-        isShortFilm={isShortFilm}
+        isShortMovies={isShortMovies}
         onFilterMovies={handleShortFilmFilterToggle}
       />
       <MoviesCardList
         cards={filteredMovies}
-        isRequestError={isRequestError}
+        isQueryError={isQueryError}
         isNotFound={isNotFound}
         isLoading={isLoading}
         isSavedFilms={false}

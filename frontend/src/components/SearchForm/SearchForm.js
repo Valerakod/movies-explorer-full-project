@@ -3,17 +3,19 @@ import { useLocation } from 'react-router-dom';
 import './SearchForm.css';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm({ isShortFilm, searchAndFilterMovies, onFilterMovies }) {
+function SearchForm({ isShortMovies, searchAndFilterMovies, onFilterMovies }) {
   const [request, setRequest] = useState('');
-  const [isRequestError, setIsRequestError] = useState(false);
+  const [isQueryError, setisQueryError] = useState(false);
+  console.log(isQueryError);
+  console.log(setisQueryError);
   const location = useLocation();
 
   function onSubmitUserForm(e) {
     e.preventDefault();
     if (request.trim().length === 0) {
-      setIsRequestError(true);
+      setisQueryError(true);
     } else {
-      setIsRequestError(false);
+      setisQueryError(false);
       searchAndFilterMovies(request);
     }
   }
@@ -50,10 +52,10 @@ function SearchForm({ isShortFilm, searchAndFilterMovies, onFilterMovies }) {
         </button>
       </form>
       <FilterCheckbox
-        isShortFilm={isShortFilm}
+        isShortMovies={isShortMovies}
         onFilterMovies={onFilterMovies}
       />
-      {isRequestError && (
+      {isQueryError && (
         <span className="search__form-error">Keyword required</span>
       )}
       <div className="search__border-bottom"></div>

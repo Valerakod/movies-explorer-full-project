@@ -1,6 +1,7 @@
 import { handleSendRequest } from './utils';
 
-export const BASE_URL = 'https://api.valeriia.diplom.nomoredomainsicu.ru';
+//export const BASE_URL = 'https://api.valeriia.diplom.nomoredomainsicu.ru';
+export const BASE_URL = 'http://localhost:3000';
 
 // User registration
 export const register = (name, email, password) => {

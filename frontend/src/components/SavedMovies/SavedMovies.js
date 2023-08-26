@@ -9,14 +9,14 @@ function SavedMovies({ loggedIn, onDeleteCard, savedMovies }) {
   const [isNotFound, setIsNotFound] = useState(false);
   const [isSearchRequest, setSearchRequest] = useState('');
   const [isFilteredMovies, setFilteredMovies] = useState(savedMovies);
-  const [isShortFilm, setShortFilm] = useState(false);
+  const [isShortMovies, setShortFilm] = useState(false);
 
   function handleShortFilmFilterToggle() {
-    setShortFilm(!isShortFilm);
+    setShortFilm(!isShortMovies);
   }
 
-  function searchAndFilterMovies(req) {
-    setSearchRequest(req);
+  function searchAndFilterMovies(request) {
+    setSearchRequest(request);
   }
 
   useEffect(() => {
@@ -30,9 +30,9 @@ function SavedMovies({ loggedIn, onDeleteCard, savedMovies }) {
   useEffect(() => {
     const moviesCardList = filterMovies(savedMovies, isSearchRequest);
     setFilteredMovies(
-      isShortFilm ? filterDuration(moviesCardList) : moviesCardList
+      isShortMovies ? filterDuration(moviesCardList) : moviesCardList
     );
-  }, [savedMovies, isShortFilm, isSearchRequest]);
+  }, [savedMovies, isShortMovies, isSearchRequest]);
 
   return (
     <section className="movies">

@@ -1,8 +1,7 @@
-const DESKTOP_CARDS_DISPLAY_LIMIT = 3;
+const DESKTOP_CARDS_DISPLAY_LIMIT = 4;
 const TABLET_CARDS_DISPLAY_LIMIT = 2;
 const MOBILE_CARDS_DISPLAY_LIMIT = 2;
 const MAX_SHORT_FILM_LENGTH = 40;
-const display = window.innerWidth;
 const EMAIL_VALIDATION =
   '^[A-Za-z0-9\\._%\\+\\-]+@([A-Za-z0-9\\-]+\\.)+[A-Za-z]{2,}$';
 const USERNAME_VALIDATION = '^[A-Za-zА-Яа-яЁё /s -]+$';
@@ -14,5 +13,4 @@ export {
   MAX_SHORT_FILM_LENGTH,
   EMAIL_VALIDATION,
   USERNAME_VALIDATION,
-  display,
 };
