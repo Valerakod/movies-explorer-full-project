@@ -42,7 +42,6 @@ function SearchForm({ isShortMovies, searchAndFilterMovies, onFilterMovies }) {
           id="search-input"
           type="text"
           placeholder="Movie"
-          required
           onChange={handleChangeInputRequest}
           value={request || ''}
         ></input>
