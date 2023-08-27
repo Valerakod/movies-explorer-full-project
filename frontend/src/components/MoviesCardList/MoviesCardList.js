@@ -32,7 +32,7 @@ function MoviesCardList({
     console.log("Сколько отобразить карточек в зависимости от ширины экрана")
     console.log(display)
     if (display > 1180) {
-      setShownMovies(12); // 12 cards
+      setShownMovies(16); // 16 cards
     } else if (display > 767) {
       setShownMovies(8); // 8 cards
     } else {
@@ -40,15 +40,26 @@ function MoviesCardList({
     }
   }
 
-  useEffect(() => {
-    setMoviesShownCount();
-  }, []);
 
   useEffect(() => {
-    setTimeout(() => {
-      window.addEventListener('resize', setMoviesShownCount);
-    }, 500);
-  });
+    let resizeTimeout
+
+    function handleResize() {
+      clearTimeout(resizeTimeout)
+      resizeTimeout = setTimeout(() => {
+        setMoviesShownCount()
+      }, 500)
+    }
+    
+    setMoviesShownCount()
+
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      clearTimeout(resizeTimeout)
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
   // I add the number of cards with movies when clicking on the "More" button on different screen sizes
   function expandMoviesDisplay() {
