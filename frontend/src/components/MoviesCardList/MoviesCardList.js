@@ -31,7 +31,7 @@ function MoviesCardList({
     const display = window.innerWidth;
     console.log("Сколько отобразить карточек в зависимости от ширины экрана")
     console.log(display)
-    if (display > 1180) {
+    if (display > 1279) {
       setShownMovies(16); // 16 cards
     } else if (display > 767) {
       setShownMovies(8); // 8 cards
@@ -66,10 +66,10 @@ function MoviesCardList({
     const display = window.innerWidth;
     console.log(display)
     console.log("Сколько отобразить карточек по нажатию на кнопку ЕЩЁ")
-    if (display > 1180) {
+    if (display > 1279) {
       console.log(DESKTOP_CARDS_DISPLAY_LIMIT)
       setShownMovies(shownMovies + DESKTOP_CARDS_DISPLAY_LIMIT); // 4 cards
-    } else if (display > 768) {
+    } else if (display > 767) {
       console.log(TABLET_CARDS_DISPLAY_LIMIT)
       setShownMovies(shownMovies + TABLET_CARDS_DISPLAY_LIMIT); // 2 cards
     } else {
