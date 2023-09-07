@@ -38,7 +38,6 @@ function App() {
 
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
-    console.log(jwt);
     if (jwt) {
       api
         .fetchUserContent(jwt)
@@ -53,6 +52,7 @@ function App() {
           console.log(err);
         });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -68,7 +68,6 @@ function App() {
       api
         .getMovies()
         .then((cardsData) => {
-          console.log(cardsData);
           setSavedMovies(cardsData.reverse());
         })
         .catch((err) => {

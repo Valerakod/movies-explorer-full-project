@@ -6,8 +6,6 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 function SearchForm({ isShortMovies, searchAndFilterMovies, onFilterMovies }) {
   const [request, setRequest] = useState('');
   const [isQueryError, setisQueryError] = useState(false);
-  console.log(isQueryError);
-  console.log(setisQueryError);
   const location = useLocation();
 
   function onSubmitUserForm(e) {

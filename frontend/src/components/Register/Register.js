@@ -1,19 +1,19 @@
-import React from 'react';
-import '../Form/Form.css';
-import Form from '../Form/Form';
-import { EMAIL_VALIDATION, USERNAME_VALIDATION } from '../../utils/constants';
-import useForm from '../../hooks/useForm';
+import React from "react"
+import "../Form/Form.css"
+import Form from "../Form/Form"
+import { EMAIL_VALIDATION } from "../../utils/constants"
+import useForm from "../../hooks/useForm"
 
 function Register({ isLoading, onRegister }) {
-  const { enteredValues, isErrors, handleChangeInput, isFormValid } = useForm();
+  const { enteredValues, isErrors, handleChangeInput, isFormValid } = useForm()
 
   function onSubmitUserForm(event) {
-    event.preventDefault();
+    event.preventDefault()
     onRegister({
       name: enteredValues.name,
       email: enteredValues.email,
       password: enteredValues.password,
-    });
+    })
   }
 
   return (
@@ -39,8 +39,7 @@ function Register({ isLoading, onRegister }) {
           required
           placeholder="name"
           onChange={handleChangeInput}
-          value={enteredValues.name || ''}
-          pattern={USERNAME_VALIDATION}
+          value={enteredValues.name || ""}
         />
         <span className="form__input-error">{isErrors.name}</span>
       </label>
@@ -55,7 +54,7 @@ function Register({ isLoading, onRegister }) {
           placeholder="email"
           onChange={handleChangeInput}
           pattern={EMAIL_VALIDATION}
-          value={enteredValues.email || ''}
+          value={enteredValues.email || ""}
         />
         <span className="form__input-error">{isErrors.email}</span>
       </label>
@@ -69,14 +68,14 @@ function Register({ isLoading, onRegister }) {
           required
           placeholder="password"
           onChange={handleChangeInput}
-          value={enteredValues.password || ''}
+          value={enteredValues.password || ""}
           minLength="6"
           maxLength="12"
         />
         <span className="form__input-error">{isErrors.password}</span>
       </label>
     </Form>
-  );
+  )
 }
 
-export default Register;
+export default Register

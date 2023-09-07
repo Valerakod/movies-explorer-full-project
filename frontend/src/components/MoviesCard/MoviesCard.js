@@ -11,8 +11,6 @@ function MoviesCard({
   onDeleteCard,
 }) {
   function onDelete() {
-    console.log("Удаление")
-    console.log(card)
     onDeleteCard(card);
   }
 

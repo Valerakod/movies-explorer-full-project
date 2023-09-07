@@ -5,7 +5,6 @@ import "./NotFound.css";
 function NotFound() {
   const navigate = useNavigate();
   const goBack = () => {
-    console.log('click')
     navigate(-2)
   }
 

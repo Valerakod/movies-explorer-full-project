@@ -3,7 +3,7 @@ import CurrentUserContext from '../CurrentUserContext/CurrentUserContext';
 import useForm from '../../hooks/useForm';
 import './Profile.css';
 import Header from '../Header/Header';
-import { EMAIL_VALIDATION, USERNAME_VALIDATION } from '../../utils/constants';
+import { EMAIL_VALIDATION } from '../../utils/constants';
 
 function Profile({ loggedIn, signOut, onUpdateUser, isLoading }) {
   const currentUser = useContext(CurrentUserContext);
@@ -28,6 +28,7 @@ function Profile({ loggedIn, signOut, onUpdateUser, isLoading }) {
     } else {
       setIsLastData(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [enteredValues]);
 
   useEffect(() => {
@@ -59,7 +60,6 @@ function Profile({ loggedIn, signOut, onUpdateUser, isLoading }) {
               placeholder="name"
               onChange={handleChangeInput}
               value={enteredValues.name || ''}
-              pattern={USERNAME_VALIDATION}
             />
             <span className="profile__input-error">{isErrors.name}</span>
           </label>

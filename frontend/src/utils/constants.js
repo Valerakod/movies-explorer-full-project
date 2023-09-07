@@ -4,7 +4,7 @@ const MOBILE_CARDS_DISPLAY_LIMIT = 2;
 const MAX_SHORT_FILM_LENGTH = 40;
 const EMAIL_VALIDATION =
   '^[A-Za-z0-9\\._%\\+\\-]+@([A-Za-z0-9\\-]+\\.)+[A-Za-z]{2,}$';
-const USERNAME_VALIDATION = '^[A-Za-zА-Яа-яЁё /s -]+$';
+
 
 export {
   DESKTOP_CARDS_DISPLAY_LIMIT,
@@ -12,5 +12,4 @@ export {
   MOBILE_CARDS_DISPLAY_LIMIT,
   MAX_SHORT_FILM_LENGTH,
   EMAIL_VALIDATION,
-  USERNAME_VALIDATION,
 };

@@ -44,7 +44,7 @@
 }
 
 .header__button {
-  color: #FFF;
+  color: #fff;
   text-align: right;
   font-family: Inter;
   font-size: 12px;
@@ -59,11 +59,18 @@
   text-decoration: none;
 }
 
-
+.header__button_active {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+  color: #2be080;
+}
 
 .header__button:hover {
   cursor: pointer;
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .header__button-green {
@@ -113,20 +120,21 @@
 }
 
 .header__account-button:hover {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .header__menu-button {
-  background-color: #FFF;
+  background-color: #fff;
   border: none;
   width: 44px;
   height: 44px;
   display: none;
+  border: none;
   cursor: pointer;
 }
 
 .header__menu-button:hover {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 1023px) {

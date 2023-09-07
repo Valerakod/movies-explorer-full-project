@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import './Navigation.css';
-import account from '../../images/account_check_icon.svg';
+import React from "react"
+import { Link, NavLink } from "react-router-dom"
+import "./Navigation.css"
+import account from "../../images/account_check_icon.svg"
 
 function Navigation({ handleClose }) {
-    // Функция для смены цвета для активной ссылки
-    const setActiveButton = ({ isActive }) =>
-      isActive ? "navigation__link_active" : "navigation__link"
+  // Функция для смены цвета для активной ссылки
+  const setActiveButton = ({ isActive }) =>
+    isActive ? "navigation__link_active" : "navigation__link"
 
   return (
     <div className="navigation__page-overlay">
@@ -17,12 +17,7 @@ function Navigation({ handleClose }) {
           onClick={handleClose}
         ></button>
         <nav className="navigation__links-list">
-          <NavLink
-            exact
-            to="/"
-            className={setActiveButton}
-            onClick={handleClose}
-          >
+          <NavLink to="/" className={setActiveButton} onClick={handleClose}>
             Main
           </NavLink>
           <NavLink
@@ -40,13 +35,17 @@ function Navigation({ handleClose }) {
             Saved movies
           </NavLink>
         </nav>
-        <Link to="/profile" className="navigation__account-button" onClick={handleClose}>
-          <a className="navigation__account-text">Account </a>
+        <Link
+          to="/profile"
+          className="navigation__account-button"
+          onClick={handleClose}
+        >
+          <div className="navigation__account-text">Account </div>
           <img src={account} alt="account" />
         </Link>
       </div>
     </div>
-  );
+  )
 }
 
-export default Navigation;
+export default Navigation
